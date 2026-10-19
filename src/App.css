@@ -89,6 +89,31 @@
   padding-top: 0.5rem;
   max-height: 6rem;
   overflow-y: auto;
+  padding-right: 0.4rem;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.artifact-card:hover .artifact-reflection {
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+/* Safari: no scrollbar-color support */
+.artifact-reflection::-webkit-scrollbar {
+  width: 6px;
+}
+
+.artifact-reflection::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.artifact-reflection::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.artifact-card:hover .artifact-reflection::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .artifact-links {
