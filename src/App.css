@@ -87,13 +87,29 @@
   font-size: 0.9rem;
   border-top: 1px solid #3a3a3a;
   padding-top: 0.5rem;
+  max-height: 6rem;
+  overflow-y: auto;
 }
 
 .artifact-links {
-  margin-top: 0.5rem;
+  margin: 1rem -1.2rem -1.2rem;
+  padding: 0.6rem 1.2rem;
+  background: #222;
+  border-top: 1px solid #3a3a3a;
+  border-radius: 0 0 8px 8px;
   display: flex;
-  gap: 1rem;
+  gap: 0.4rem 1rem;
   flex-wrap: wrap;
+}
+
+.artifact-links a {
+  color: #4fc3f7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.artifact-links a:hover {
+  text-decoration: underline;
 }
 
 .connect-buttons {
