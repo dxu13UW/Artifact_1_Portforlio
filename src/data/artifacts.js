@@ -8,11 +8,11 @@ const artifacts = [
     links: [],
   },
   {
-    title: "Artifact 2 — Canvas Grade Monitor",
-    description: "Elixir server that polls Canvas, retrieves gradable items, and sends SMTP notifications for late/past due items.",
-    status: "In Progress",
-    reflection: "Currently running locally; will add scheduling and more notification rules.",
-    link: "#",
+    title: "Artifact 2 — Canvas Crawler",
+    description: "Elixir OTP service that checks my Canvas courses every 15 minutes and emails me when an assignment is due within 24 hours and not yet submitted.",
+    status: "Live (running locally)",
+    reflection: "It started as a Python script feeding JSON to an Elixir server, and I moved it all into Elixir. UW blocks student API tokens, so I read due dates from the calendar feed and get submission status with a browser session cookie that the crawler keeps refreshed. I learned to check what the agent built by reading the logs and running the tests, and to keep the project's context in a CLAUDE.md and a log.",
+    link: "https://github.com/dxu13UW/canvas_crawler",
     links: [],
   },
   {
