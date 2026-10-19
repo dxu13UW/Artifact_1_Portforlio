@@ -1,8 +1,8 @@
 function Footer() {
   return (
     <footer className="footer">
-      <p>Phone: ###-###-####</p>
-      <p>© 2025 Daniel Xu</p>
+      <p>Phone: <a href="tel:+14157220078">(415) 722-0078</a></p>
+      <p>© {new Date().getFullYear()} Daniel Xu</p>
     </footer>
   );
 }

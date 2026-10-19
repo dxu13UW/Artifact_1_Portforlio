@@ -8,6 +8,10 @@ This is the planning log for the portfolio SPA and future artifacts.
 - **What I asked the agent for:** Help building the React SPA, data structure, and planning notes.
 - **What I decided:** Use Vite + React, simple CSS, GitHub Pages deployment later.
 - **What I abandoned:** Using a CSS framework; opted for custom minimal CSS.
+- **Where the AI misread me:**
+  - I asked it to *plan* dev notes for Artifacts 2–5, but it filled in "what I asked / decided / abandoned" as if those decisions were already made (e.g. Swoosh, Oban, Direct3D hooking). These entries are its guesses, not my choices, and will be rewritten as I actually build each artifact.
+  - It carried over a `###-###-####` phone placeholder and a hard-coded 2025 copyright into the footer. Replaced the placeholder with my real number and made the year dynamic after instructor feedback.
+  - It assumed Vite would handle JSX without a `vite.config.js`, which left the page blank until the React plugin config was added.
 
 ## Artifact 2: Canvas Grade Monitor (Elixir)
 - **What I set out to build:** Elixir server that polls Canvas API for gradable items and sends SMTP notifications on late/past due items.
