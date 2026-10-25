@@ -19,11 +19,15 @@ This is the planning log for the portfolio SPA and future artifacts.
 - **What I decided:** Use GenServer + periodic timer, Finch for HTTP, Swoosh for email.
 - **What I abandoned:** Using Oban initially; simplified to built-in timers for single-node dev.
 
-## Artifact 3: LLM Tool Loop (TBD)
-- **What I set out to build:** A tool that uses an LLM to perform an action on each run (read, decide, write, or call tools).
-- **What I asked the agent for:** Ideas and scaffolding for a loop that uses an LLM to process a task.
-- **What I decided:** Build a CLI that takes a user prompt, uses an LLM to decide which shell command to run, and logs the result.
-- **What I abandoned:** Building a GUI; kept to CLI for simplicity.
+## Artifact 3: HomeBrief
+- **What I set out to build:** A daily scheduler that uses my new Google Home speaker as its voice, with Claude doing the planning and writing.
+- **What I asked the agent for:** Planning in Claude Desktop first (options, trade-offs, a name), then Claude Code to build it step by step: casting to the speaker, a speaker MCP server, Google Calendar access, the `claude -p` morning briefing, a Stop hook, and Discord Rich Presence for focus blocks.
+- **What I decided:** No Claude API, only Claude Code (`claude -p` and MCP). Claude returns text and code validates it before it's spoken. Calendar rules (tagged `[claude]` events only, no edits or deletes, 11:30 AM–10 PM, class-day start times, one block per briefing) are enforced in code. Google Calendar is the bridge to Gemini on the speaker. The repo also runs on my MacBook for scheduling away from home, with only the PC speaking.
+- **What I abandoned:** Voice input (the speaker's mic only feeds Gemini), Claude prompting Gemini (two models in a chain hide which one failed), a "Hey Jarvis" wake word (needs extra hardware), and changing my Discord status (needs a banned self-bot; Rich Presence instead).
+- **Where the AI misread me:**
+  - This section first held the agent's guess from Artifact 1 (a CLI that picks shell commands), not my plan.
+  - It read "leftover time" in a focus block request as a second block after 8:30 PM instead of time inside the same block; I corrected it before anything was written.
+  - The full log of plans, changes and problems is in the HomeBrief repo's `LOG.md`.
 
 ## Artifact 4: Capstock (Stock Watchlist)
 - **What I set out to build:** Improve existing full-stack stock watchlist. Add better charting, alerting, and code cleanup.

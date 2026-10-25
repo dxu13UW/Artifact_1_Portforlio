@@ -16,11 +16,11 @@ const artifacts = [
     links: [],
   },
   {
-    title: "Artifact 3 — LLM Tool Loop",
-    description: "A tool where a model does some of the work every time it runs (reads, decides, writes, or calls tools).",
-    status: "Idea",
-    reflection: "Will explore Tools on Top of LLMs and build a loop that uses an LLM to automate a task.",
-    link: "#",
+    title: "Artifact 3 — HomeBrief",
+    description: "A daily scheduler that talks through my Google Home speaker. Every morning Claude (claude -p) reads my Google Calendar, may add a focus block around my classes, and writes a short spoken briefing; plain Python checks what it wrote and casts it to the speaker. When any Claude Code task runs over a minute, the speaker says what was done, and Discord shows my current focus block.",
+    status: "Live (runs daily on my PC)",
+    reflection: "The hardest part was the network, not the model: the speaker couldn't fetch audio from WSL until I switched WSL to mirrored networking and opened a Hyper-V firewall port. I kept the model's part small. Claude returns text and code checks it before anything is spoken, and calendar rules like class-day start times are enforced in code instead of trusted to the prompt, so the logs always show whether a bad sentence came from the model or my code. I planned the whole project in Claude Desktop before writing any code, and that CLAUDE.md kept every session on track.",
+    link: "https://github.com/dxu13UW/HomeBrief",
     links: [],
   },
   {
