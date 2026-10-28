@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeBrief Privacy Policy</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 40px 16px; }
+    h1 { font-size: 1.8rem; margin-bottom: 4px; }
+    h2 { font-size: 1.15rem; margin: 28px 0 8px; }
+    p, li { margin-bottom: 8px; }
+    ul { padding-left: 20px; }
+    a { color: #4fc3f7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color: #9e9e9e; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>HomeBrief Privacy Policy</h1>
+    <p class="muted">Last updated: October 28, 2026</p>
+
+    <p>HomeBrief is a personal project, built as a course project, that reads my own Google
+      Calendar and speaks a short morning briefing on my Google Home speaker. It is used only by
+      me, with my own Google account. It is not offered to the public.</p>
+
+    <h2>What HomeBrief accesses</h2>
+    <ul>
+      <li><strong>Google Calendar events</strong> on the account that signs in: their titles and
+        start and end times, so the day can be planned and described.</li>
+      <li>HomeBrief can <strong>create</strong> focus block events on that calendar. Every event
+        it creates is marked <code>[claude]</code>. It has no function to edit or delete
+        events.</li>
+    </ul>
+
+    <h2>How the data is used</h2>
+    <ul>
+      <li>The day's event titles and times are sent to Claude (Anthropic), through Claude Code,
+        to write the spoken briefing.</li>
+      <li>The briefing text is turned into speech with Google's text-to-speech service and played
+        on my Google Home speaker on my home network.</li>
+      <li>While a focus block is running, its title and time may be shown as my Discord
+        activity.</li>
+    </ul>
+
+    <h2>Storage and sharing</h2>
+    <ul>
+      <li>HomeBrief runs on my own computers. There is no HomeBrief server or database.</li>
+      <li>The Google sign-in token and the logs are stored only on those computers.</li>
+      <li>No calendar data is sold, shared with anyone else, or used for advertising.</li>
+    </ul>
+
+    <h2>Removing access</h2>
+    <p>Access can be revoked at any time in your Google Account under
+      <a href="https://myaccount.google.com/permissions">Third-party apps &amp; services</a>.
+      Deleting the token file on the computer also stops all access.</p>
+
+    <h2>Contact</h2>
+    <p>Questions can be raised on the project's GitHub page:
+      <a href="https://github.com/dxu13UW/HomeBrief">github.com/dxu13UW/HomeBrief</a>.</p>
+
+    <p class="muted"><a href="./">Back to the portfolio</a></p>
+  </main>
+</body>
+</html>
