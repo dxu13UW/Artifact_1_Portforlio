@@ -24,13 +24,13 @@ const artifacts = [
     links: [],
   },
   {
-    title: "Artifact 4 — Capstock",
-    description: "Full-stack real-time financial telemetry platform. Elixir/Phoenix backend, React SPA, SQLite, LTTB downsampling, Phoenix Channels.",
-    status: "Live / Improve",
-    reflection: "Built with a team; I want to improve UI and add features.",
-    link: "#",
+    title: "Artifact 4 — Capstock Day-Trading Simulator",
+    description: "Paper day-trading simulator for a real day trader, built on my Elixir/Phoenix stock backend. Adds Phoenix LiveView alongside the existing React SPA and compares the two with measurements.",
+    status: "In progress (check-in Nov 1)",
+    reflection: "Interviewing the trader changed the plan right away: he trades with limit entries and stop-losses, not market orders, and needs tickers Finnhub doesn't cover, so I added Alpaca's free market data. So far: plan, interview and log done; LiveView and Tailwind v4 set up without breaking the React API; a dependency security fix; my first LiveView code. Next: live prices, a shared paper-trading module, and the trading panel in both UIs.",
+    link: "https://github.com/dxu13UW/stock_fetcher-CapStock_BACKEND/tree/liveview",
     links: [
-      { label: "Backend", url: "https://github.com/dxu13UW/stock_fetcher-CapStock_BACKEND" },
+      { label: "Backend (liveview branch: PLAN.md, LOG.md)", url: "https://github.com/dxu13UW/stock_fetcher-CapStock_BACKEND/tree/liveview" },
       { label: "Frontend", url: "https://github.com/tinle-ri/CapStock_FrontEnd" },
       { label: "Live Frontend", url: "https://tinle-ri.github.io/CapStock_FrontEnd/" }
     ],
