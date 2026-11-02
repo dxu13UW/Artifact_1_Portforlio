@@ -27,7 +27,7 @@ const artifacts = [
     title: "Artifact 4 — Capstock Day-Trading Simulator",
     description: "Paper day-trading simulator for a real day trader, built on my Elixir/Phoenix stock backend. Adds Phoenix LiveView alongside the existing React SPA and compares the two with measurements.",
     status: "In progress (check-in Nov 1)",
-    reflection: "Interviewing the trader changed the plan right away: he trades with limit entries and stop-losses, not market orders, and needs tickers Finnhub doesn't cover, so I added Alpaca's free market data. So far: plan, interview and log done; LiveView and Tailwind v4 set up without breaking the React API; a dependency security fix; my first LiveView code. Next: live prices, a shared paper-trading module, and the trading panel in both UIs.",
+    reflection: "Interviewing the trader changed the plan right away: he trades with limit entries and stop-losses, not market orders, and needs tickers Finnhub doesn't cover, so I added Alpaca's free market data. So far: plan, interview and log done; LiveView and Tailwind v4 set up without breaking the React API; a dependency security fix; and my first LiveView page, a live prices table that updates from the server's price stream. Writing it taught me that passing tests only cover the code they actually run: three of my bugs got past green tests. Next: a shared paper-trading module, then the trading panel in both UIs.",
     link: "https://github.com/dxu13UW/stock_fetcher-CapStock_BACKEND/tree/liveview",
     links: [
       { label: "Backend (liveview branch: PLAN.md, LOG.md)", url: "https://github.com/dxu13UW/stock_fetcher-CapStock_BACKEND/tree/liveview" },
