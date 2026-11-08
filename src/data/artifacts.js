@@ -25,14 +25,14 @@ const artifacts = [
   },
   {
     title: "Artifact 4 — Capstock Day-Trading Simulator",
-    description: "Paper day-trading simulator for a real day trader, built on my Elixir/Phoenix stock backend. Adds Phoenix LiveView alongside the existing React SPA and compares the two with measurements.",
-    status: "In progress (check-in Nov 1)",
-    reflection: "Interviewing the trader changed the plan right away: he trades with limit entries and stop-losses, not market orders, and needs tickers Finnhub doesn't cover, so I added Alpaca's free market data. So far: plan, interview and log done; LiveView and Tailwind v4 set up without breaking the React API; a dependency security fix; and my first LiveView page, a live prices table that updates from the server's price stream. Writing it taught me that passing tests only cover the code they actually run: three of my bugs got past green tests. Next: a shared paper-trading module, then the trading panel in both UIs.",
-    link: "https://github.com/dxu13UW/stock_fetcher-CapStock_BACKEND/tree/liveview",
+    description: "Paper day-trading simulator built for a day trader, on live prices for 50 tickers. A Phoenix LiveView app with limit entries, stop-losses, take-profits and shorts, a candlestick chart, private portfolios kept in a signed save file (no accounts), and keyboard-first controls, measured against the existing React SPA on the same backend.",
+    status: "Live (deployed on Fly.io)",
+    reflection: "Interviewing the trader reshaped the plan on day one: he trades with limit entries and hard stops, so I kept the shared buy/sell panel small enough to build in both LiveView and React, and gave his order types to LiveView. The measurements surprised me: LiveView was about as cheap as React on the network (151 vs 123 bytes per price tick) but held 4–5 times the server memory per open tab. That became real at deploy, when loading chart history at boot ran the 256 MB server out of memory, and it's why I later added connection limits. Tests taught me their limits too: three of my bugs passed green tests, and the out-of-memory crash had no test at all. For the last two days the agent wrote the code while I documented why each piece exists, which made reviewing its work my main job.",
+    link: "https://capstock-backend.fly.dev/prices?source=mock",
     links: [
-      { label: "Backend (liveview branch: PLAN.md, LOG.md)", url: "https://github.com/dxu13UW/stock_fetcher-CapStock_BACKEND/tree/liveview" },
-      { label: "Frontend", url: "https://github.com/tinle-ri/CapStock_FrontEnd" },
-      { label: "Live Frontend", url: "https://tinle-ri.github.io/CapStock_FrontEnd/" }
+      { label: "Backend repo (README, PLAN.md, LOG.md)", url: "https://github.com/dxu13UW/stock_fetcher-CapStock_BACKEND" },
+      { label: "React frontend repo", url: "https://github.com/tinle-ri/CapStock_FrontEnd" },
+      { label: "Live React SPA", url: "https://tinle-ri.github.io/CapStock_FrontEnd/" }
     ],
   },
   {
