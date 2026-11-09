@@ -1,3 +1,6 @@
+import capstockBefore from "../assets/capstock-before.jpg";
+import capstockAfter from "../assets/capstock-after.jpg";
+
 const artifacts = [
   {
     title: "Artifact 1 — Portfolio SPA",
@@ -24,7 +27,14 @@ const artifacts = [
     links: [],
   },
   {
-    title: "Artifact 4 — Capstock Day-Trading Simulator",
+    title: "Artifact 4 — Capstock",
+    subtitle: "Day-Trading Simulator",
+    // Before: the React SPA on Oct 3 (commit 30545bc), the last version before Artifact 4.
+    // After: the LiveView app on Nov 8 (release v31), mock prices, one bracket order selected.
+    shots: [
+      { label: "Before", src: capstockBefore, alt: "Capstock before Artifact 4: a table of 5 tickers and a line chart" },
+      { label: "After", src: capstockAfter, alt: "Capstock after Artifact 4: portfolio sidebar, candlestick chart with take-profit and stop-loss lines, trade panel, watchlist, positions and open orders" }
+    ],
     description: "Paper day-trading simulator built for a day trader, on live prices for 50 tickers. A Phoenix LiveView app with limit entries, stop-losses, take-profits and shorts, a candlestick chart, private portfolios kept in a signed save file (no accounts), and keyboard-first controls, measured against the existing React SPA on the same backend.",
     status: "Live (deployed on Fly.io)",
     reflection: "Interviewing the trader reshaped the plan on day one: he trades with limit entries and hard stops, so I kept the shared buy/sell panel small enough to build in both LiveView and React, and gave his order types to LiveView. The measurements surprised me: LiveView was about as cheap as React on the network (151 vs 123 bytes per price tick) but held 4–5 times the server memory per open tab. That became real at deploy, when loading chart history at boot ran the 256 MB server out of memory, and it's why I later added connection limits. Tests taught me their limits too: three of my bugs passed green tests, and the out-of-memory crash had no test at all. For the last two days the agent wrote the code while I documented why each piece exists, which made reviewing its work my main job.",

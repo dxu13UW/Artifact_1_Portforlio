@@ -11,6 +11,17 @@ function ArtifactCard({ artifact }) {
   return (
     <article className="artifact-card">
       <h3>{artifact.title}</h3>
+      {artifact.subtitle && <p className="artifact-subtitle">{artifact.subtitle}</p>}
+      {artifact.shots && (
+        <div className="artifact-shots">
+          {artifact.shots.map((shot) => (
+            <a key={shot.label} href={shot.src} target="_blank" rel="noreferrer" title={`${shot.label}: open full size`}>
+              <img src={shot.src} alt={shot.alt} loading="lazy" />
+              <span>{shot.label}</span>
+            </a>
+          ))}
+        </div>
+      )}
       <p className="artifact-description">{artifact.description}</p>
       <p className="artifact-status">{artifact.status}</p>
       <p className="artifact-reflection">{artifact.reflection}</p>
