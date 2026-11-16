@@ -51,11 +51,12 @@ const artifacts = [
     ],
   },
   {
-    title: "Artifact 5 — Path of Exile Game Overlay",
-    description: "Moonshot: Elixir backend + C++ Windows UI/overlay engine for Path of Exile.",
-    status: "Moonshot",
-    reflection: "Plan to learn more about game APIs and overlay integration.",
-    link: "#",
+    title: "Artifact 5 — Quicksilver",
+    subtitle: "Path of Exile Companion (Moonshot)",
+    description: "A Path of Exile companion app for Windows. An Elixir/OTP backend handles prices, the trade API and the game's log file. A C++/Qt 6 command center window shows a dashboard, and a transparent in-game overlay gives one-key price checks and trade requests. Built solo, with five Claude Code subagents as the team.",
+    status: "In progress (check-in Nov 15)",
+    reflection: "Week 1 was planning only, on purpose. So far: plan, architecture, client–backend protocol, design decisions, and a requirements doc with a pass/fail check for every feature. The game's rules shaped the design most: no reading game memory and only one game action per keypress. That's why the overlay is a separate always-on-top window and item details come from the text the game copies with Ctrl+C, not from hooking into the game. Testing the live APIs before writing code paid off. poe.ninja had moved its endpoints (the old ones now return errors), and the trade API can lock you out for 30 minutes, so the app reads rate limits from response headers and queues requests. Next: both halves talking over a local WebSocket, and a dashboard with live currency rates.",
+    link: "https://github.com/dxu13UW/Quicksilver",
     links: [],
   },
 ];

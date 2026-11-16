@@ -35,8 +35,11 @@ This is the planning log for the portfolio SPA and future artifacts.
 - **What I decided:** Focus on real-time tick downsampling and UI responsiveness.
 - **What I abandoned:** Rewriting backend in another language; decided to keep Elixir.
 
-## Artifact 5: Path of Exile Game Overlay (Moonshot)
-- **What I set out to build:** A game overlay for PoE with Elixir backend and C++ Windows overlay engine.
-- **What I asked the agent for:** Research on overlay injection, process communication, and game API.
-- **What I decided:** Start with a separate overlay window via Win32, then integrate with Elixir over TCP/WebSocket.
-- **What I abandoned:** Direct3D hooking initially; too complex, defer.
+## Artifact 5: Quicksilver, a Path of Exile companion (Moonshot)
+- **What I set out to build:** A Path of Exile 1 companion app with three parts: an Elixir/OTP backend, a C++/Qt 6 command center window, and a transparent in-game overlay. Features in priority order: dashboard, price check, stash trade overlay, session summary.
+- **What I asked the agent for:** Planning in Claude Desktop first. Then Claude Code for the scaffold: docs, design decisions (ADRs), a requirements doc, five subagents (backend, frontend, integrations, QA, scribe), a live check of the APIs, and the GitHub repo.
+- **What I decided:** Qt Widgets (not QML). A single Elixir app with Bandit + WebSock (not Phoenix Channels) for the lowest overhead. Item input comes from the game's own Ctrl+C item text, and trade and session events come from tailing the game's `Client.txt` log. Support both the Steam and standalone game clients. A public repo, and a Windows setup wizard for v0.1. A short requirements doc instead of a full SRS.
+- **What I abandoned:** Direct3D hooking and any overlay injection, permanently. The game's rules forbid reading or hooking the game, so the overlay is a separate always-on-top window. Also the stash OAuth API for the MVP (whispers in `Client.txt` give the same trade info).
+- **Where the AI misread me:**
+  - This section first held the agent's guess from Artifact 1 ("research on overlay injection", "defer Direct3D hooking"). Hooking isn't deferred; it's ruled out.
+  - The full log is in the Quicksilver repo's `LOG.md`.
