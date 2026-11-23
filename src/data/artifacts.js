@@ -1,5 +1,6 @@
 import capstockBefore from "../assets/capstock-before.jpg";
 import capstockAfter from "../assets/capstock-after.jpg";
+import quicksilverWeek2 from "../assets/quicksilver-week2.png";
 
 const artifacts = [
   {
@@ -53,9 +54,13 @@ const artifacts = [
   {
     title: "Artifact 5 — Quicksilver",
     subtitle: "Path of Exile Companion (Moonshot)",
+    // Week 2 (Nov 22): the command center with live poe.ninja rates (Quicksilver docs/images/command-center.png).
+    shots: [
+      { label: "Week 2", src: quicksilverWeek2, alt: "Quicksilver command center: connection status, league selector, currency rates table and data-source health" }
+    ],
     description: "A Path of Exile companion app for Windows. An Elixir/OTP backend handles prices, the trade API and the game's log file. A C++/Qt 6 command center window shows a dashboard, and a transparent in-game overlay gives one-key price checks and trade requests. Built solo, with five Claude Code subagents as the team.",
-    status: "In progress (check-in Nov 15)",
-    reflection: "Week 1 was planning only, on purpose. So far: plan, architecture, client–backend protocol, design decisions, and a requirements doc with a pass/fail check for every feature. The game's rules shaped the design most: no reading game memory and only one game action per keypress. That's why the overlay is a separate always-on-top window and item details come from the text the game copies with Ctrl+C, not from hooking into the game. Testing the live APIs before writing code paid off. poe.ninja had moved its endpoints (the old ones now return errors), and the trade API can lock you out for 30 minutes, so the app reads rate limits from response headers and queues requests. Next: both halves talking over a local WebSocket, and a dashboard with live currency rates.",
+    status: "In progress (Week 2 check-in Nov 22)",
+    reflection: "Week 2: the walking skeleton works end to end. Quicksilver.exe starts the Elixir backend, connects to it over a local WebSocket with a per-launch token, and shows live poe.ninja currency rates for the league I pick, plus the health of each data source. Most of the hard problems were Windows, not features. A cmd startup script of mine broke the MSVC build. Erlang never noticed Qt closing its input, so quitting hung until a forced kill. I put the backend in a Job Object so it can't outlive the app even after a force-kill. When an agent found the protocol silent, it asked. I decided, and the doc changed before the code. That's how the backend got a push that tells the app when it switches leagues on its own. Evidence: 174 backend tests and 162 frontend test cases pass, a QA review passed 6 of 6 areas, and I tested every UI feature by hand before committing. Week 1 was planning only: the game's rules (no reading game memory, one game action per keypress) shaped the overlay, and testing the live APIs first caught poe.ninja's moved endpoints. Next: the item parser, pricing, and the in-game overlay.",
     link: "https://github.com/dxu13UW/Quicksilver",
     links: [],
   },
